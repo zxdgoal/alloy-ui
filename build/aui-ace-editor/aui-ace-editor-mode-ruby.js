@@ -1,3 +1,3 @@
 AUI.add('aui-ace-editor-mode-ruby', function(A) {
 
-}, '@VERSION@' ,{requires:['aui-ace-editor-base'], skinnable:false});
+}, '1.5.0' ,{requires:['aui-ace-editor-base'], skinnable:false});

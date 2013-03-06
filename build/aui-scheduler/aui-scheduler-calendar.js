@@ -103,4 +103,4 @@ var SchedulerCalendar = A.Component.create({
 
 A.SchedulerCalendar = SchedulerCalendar;
 
-}, '@VERSION@' ,{requires:['aui-scheduler-event'], skinnable:true});
+}, '1.5.0' ,{requires:['aui-scheduler-event'], skinnable:true});

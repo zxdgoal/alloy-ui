@@ -89,7 +89,7 @@
 })();
 ;(function() {
 	/*
-	 * Alloy JavaScript Library v@VERSION@
+	 * Alloy JavaScript Library v1.5.0
 	 * http://alloy.liferay.com/
 	 *
 	 * Copyright (c) 2010 Liferay Inc.
@@ -590,7 +590,7 @@ A.fn = function(fn, context, args) {
 	return wrappedFn;
 };
 
-}, '@VERSION@' ,{requires:['aui-node','aui-component','aui-debounce','aui-delayed-task','aui-selector','aui-event-base','oop','yui-throttle'], skinnable:false});
+}, '1.5.0' ,{requires:['aui-node','aui-component','aui-debounce','aui-delayed-task','aui-selector','aui-event-base','oop','yui-throttle'], skinnable:false});
 AUI.add('aui-base-lang', function(A) {
 var Lang = A.Lang,
 	AArray = A.Array,
@@ -1016,8 +1016,8 @@ A.map = function(obj, fn, context) {
 	return module.map.apply(this, arguments);
 };
 
-}, '@VERSION@' ,{skinnable:false});
+}, '1.5.0' ,{skinnable:false});
 
 
-AUI.add('aui-base', function(A){}, '@VERSION@' ,{skinnable:false, use:['aui-base-core','aui-base-lang']});
+AUI.add('aui-base', function(A){}, '1.5.0' ,{skinnable:false, use:['aui-base-core','aui-base-lang']});
 

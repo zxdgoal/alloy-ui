@@ -809,4 +809,4 @@ var TreeData = A.Component.create(
 
 A.TreeData = TreeData;
 
-}, '@VERSION@' ,{skinnable:false, requires:['aui-base']});
+}, '1.5.0' ,{skinnable:false, requires:['aui-base']});

@@ -310,4 +310,4 @@ A.mix(
 
 A.Plugin.ResizeIframe = ResizeIframe;
 
-}, '@VERSION@' ,{requires:['aui-base','aui-task-manager','plugin'], skinnable:true});
+}, '1.5.0' ,{requires:['aui-base','aui-task-manager','plugin'], skinnable:true});

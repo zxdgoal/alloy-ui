@@ -419,4 +419,4 @@ Component.build = function() {
 
 A.Component = Component;
 
-}, '@VERSION@' ,{skinnable:false, requires:['aui-classnamemanager','base-build','widget']});
+}, '1.5.0' ,{skinnable:false, requires:['aui-classnamemanager','base-build','widget']});

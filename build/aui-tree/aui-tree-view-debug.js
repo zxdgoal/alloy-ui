@@ -979,4 +979,4 @@ var TreeViewDD = A.Component.create(
 
 A.TreeViewDD = TreeViewDD;
 
-}, '@VERSION@' ,{skinnable:true, requires:['aui-tree-node','dd-drag','dd-drop','dd-proxy']});
+}, '1.5.0' ,{skinnable:true, requires:['aui-tree-node','dd-drag','dd-drop','dd-proxy']});
