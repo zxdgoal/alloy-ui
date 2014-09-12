@@ -9550,6 +9550,7 @@ YUI.add('yui', function(Y){}, '3.4.0' ,{use:['yui-base','get','features','intl-b
 						'aui-template': {requires:['aui-base'], skinnable:false},
 						'aui-text': {submodules: {'aui-text-unicode': {requires:['aui-text-data-unicode'], skinnable:false}, 'aui-text-data-unicode': {requires:['text'], skinnable:false} }, skinnable:false, use:['aui-text-data-unicode', 'aui-text-unicode']},
 						'aui-textboxlist': {requires:['anim-node-plugin','aui-autocomplete','node-focusmanager'], skinnable:true},
+						'aui-toggler': {submodules: {'aui-toggler-delegate': {requires:['aui-toggler-base'], skinnable:false}, 'aui-toggler-base': {requires:['aui-base','transition'], skinnable:true} }, skinnable:true, use:['aui-toggler-base','aui-toggler-delegate']},
 						'aui-toolbar': {requires:['aui-base','aui-button-item','aui-data-set','widget-parent'], skinnable:true},
 						'aui-tooltip': {requires:['aui-overlay-context-panel'], skinnable:true},
 						'aui-tpl-snippets': {submodules: {'aui-tpl-snippets-checkbox': {requires:['aui-tpl-snippets-base'], skinnable:false}, 'aui-tpl-snippets-textarea': {requires:['aui-tpl-snippets-base'], skinnable:false}, 'aui-tpl-snippets-input': {requires:['aui-tpl-snippets-base'], skinnable:false}, 'aui-tpl-snippets-select': {requires:['aui-tpl-snippets-base'], skinnable:false}, 'aui-tpl-snippets-base': {requires:['aui-template'], skinnable:false} }, skinnable:false, use:['aui-tpl-snippets-base','aui-tpl-snippets-select','aui-tpl-snippets-input','aui-tpl-snippets-textarea','aui-tpl-snippets-checkbox']},
