@@ -1623,4 +1623,4 @@ AArray.each(
 	}
 );
 
-}, '1.5.0' ,{requires:['aui-base-lang','aui-classnamemanager','node']});
+}, '@VERSION@' ,{requires:['aui-base-lang','aui-classnamemanager','node']});
