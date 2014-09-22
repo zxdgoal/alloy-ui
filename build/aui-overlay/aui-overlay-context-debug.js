@@ -803,4 +803,4 @@ A.OverlayContextManager = new A.OverlayManager({});
 
 A.on(MOUSEDOWN, function() { A.OverlayContextManager.hideAll(); }, A.getDoc());
 
-}, '1.5.0' ,{requires:['aui-overlay-manager','aui-delayed-task','aui-aria']});
+}, '@VERSION@' ,{requires:['aui-overlay-manager','aui-delayed-task','aui-aria']});

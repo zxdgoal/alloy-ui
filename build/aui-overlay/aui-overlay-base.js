@@ -30,4 +30,4 @@ A.OverlayBase = A.Component.create(
 	}
 );
 
-}, '1.5.0' ,{requires:['aui-component','widget-position','widget-stack','widget-position-align','widget-position-constrain','widget-stdmod']});
+}, '@VERSION@' ,{requires:['aui-component','widget-position','widget-stack','widget-position-align','widget-position-constrain','widget-stdmod']});

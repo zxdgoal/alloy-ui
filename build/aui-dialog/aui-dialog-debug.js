@@ -13,11 +13,9 @@ var Lang = A.Lang,
 	isArray = Lang.isArray,
 	isObject = Lang.isObject,
 
-	WidgetStdMod = A.WidgetStdMod,
+	toInt = Lang.toInt,
 
-	toNumber = function(val) {
-		return parseInt(val, 10) || 0;
-	},
+	WidgetStdMod = A.WidgetStdMod,
 
 	DOC = A.config.doc,
 
@@ -473,7 +471,7 @@ Dialog.prototype = {
 		var instance = this;
 		var viewportRegion = A.getDoc().get(VIEWPORT_REGION);
 
-		instance.move([ viewportRegion.left + toNumber(offsetLeft), viewportRegion.top + toNumber(offsetTop) ]);
+		instance.move([ viewportRegion.left + toInt(offsetLeft), viewportRegion.top + toInt(offsetTop) ]);
 	},
 
 	/**
@@ -912,4 +910,4 @@ A.DialogManager = DialogManager;
  * @static
  */
 
-}, '1.5.0' ,{skinnable:true, requires:['aui-panel','dd-constrain','aui-button-item','aui-overlay-manager','aui-overlay-mask','aui-io-plugin','aui-resize']});
+}, '@VERSION@' ,{requires:['aui-panel','dd-constrain','aui-button-item','aui-overlay-manager','aui-overlay-mask','aui-io-plugin','aui-resize'], skinnable:true});
