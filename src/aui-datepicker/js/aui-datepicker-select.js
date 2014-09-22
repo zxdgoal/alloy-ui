@@ -524,7 +524,8 @@ var DatePickerSelect = A.Component.create(
 
 				var target = event.currentTarget || event.target;
 
-				var monthChanged = target.test(DOT+CSS_DATEPICKER_MONTH);
+				var monthChanged = target.test(DOT + CSS_DATEPICKER_MONTH);
+				var yearChanged = target.test(DOT + CSS_DATEPICKER_YEAR);
 
 				var currentDay = instance.get(DAY_NODE).val();
 				var currentMonth = instance.get(MONTH_NODE).val();
@@ -546,7 +547,7 @@ var DatePickerSelect = A.Component.create(
 					instance.calendar.set(CURRENT_YEAR, currentYear);
 				}
 
-				if (monthChanged) {
+				if (monthChanged || yearChanged) {
 					instance._uiSetCurrentMonth();
 
 					if (validDay) {
