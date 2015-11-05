@@ -438,6 +438,18 @@ var FormValidator = A.Component.create({
         },
 
         /**
+         * If `true` the field will be validated on change event.
+         *
+         * @attribute validateOnChange
+         * @default true
+         * @type Boolean
+         */
+        validateOnChange: {
+            value: true,
+            validator: isBoolean
+        },
+
+        /**
          * If `true` the field will be validated on input event.
          *
          * @attribute validateOnInput
@@ -537,6 +549,7 @@ var FormValidator = A.Component.create({
 
             instance.bindUI();
             instance._uiSetValidateOnBlur(instance.get('validateOnBlur'));
+            instance._uiSetValidateOnChange(instance.get('validateOnChange'));
             instance._uiSetValidateOnInput(instance.get('validateOnInput'));
         },
 
@@ -574,6 +587,7 @@ var FormValidator = A.Component.create({
 
             instance.after({
                 extractRulesChange: instance._afterExtractRulesChange,
+                validateOnChange: instance._afterValidateOnChange,
                 validateOnBlurChange: instance._afterValidateOnBlurChange,
                 validateOnInputChange: instance._afterValidateOnInputChange
             });
@@ -995,16 +1009,16 @@ var FormValidator = A.Component.create({
         },
 
         /**
-         * Fires after `validateOnInput` attribute change.
+         * Fires after `validateOnChange` attribute change.
          *
-         * @method _afterValidateOnInputChange
+         * @method _afterValidateOnChange
          * @param event
          * @protected
          */
-        _afterValidateOnInputChange: function(event) {
+        _afterValidateOnChange: function(event) {
             var instance = this;
 
-            instance._uiSetValidateOnInput(event.newVal);
+            instance._uiSetValidateOnChange(event.newVal);
         },
 
         /**
@@ -1018,6 +1032,19 @@ var FormValidator = A.Component.create({
             var instance = this;
 
             instance._uiSetValidateOnBlur(event.newVal);
+        },
+
+        /**
+         * Fires after `validateOnInput` attribute change.
+         *
+         * @method _afterValidateOnInputChange
+         * @param event
+         * @protected
+         */
+        _afterValidateOnInputChange: function(event) {
+            var instance = this;
+
+            instance._uiSetValidateOnInput(event.newVal);
         },
 
         /**
@@ -1363,12 +1390,36 @@ var FormValidator = A.Component.create({
             if (val) {
                 if (!instance._blurHandlers) {
                     instance._blurHandlers = boundingBox.delegate('blur', instance._onFieldInput,
-                        'input,select,textarea,button', instance);
+                        'input:not([type="file"]),select,textarea,button', instance);
                 }
             }
             else {
                 if (instance._blurHandlers) {
                     instance._blurHandlers.detach();
+                }
+            }
+        },
+
+        /**
+         * TODO. Wanna help? Please send a Pull Request.
+         *
+         * @method _uiSetValidateOnChange
+         * @param val
+         * @protected
+         */
+        _uiSetValidateOnChange: function(val) {
+            var instance = this,
+                boundingBox = instance.get('boundingBox');
+
+            if (val) {
+                if (!instance._changeHandlers) {
+                    instance._changeHandlers = boundingBox.delegate('change', instance._onFieldInput,
+                        'input[type="file"]', instance);
+                }
+            }
+            else {
+                if (instance._changeHandlers) {
+                    instance._changeHandlers.detach();
                 }
             }
         }
