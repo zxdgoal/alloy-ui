@@ -16,8 +16,8 @@ var Lang = A.Lang,
 
 	_DOT = '.',
 	_EMPTY_STR = '',
-	_EXCLUDE_FILE_INPUT_SELECTOR = 'input:not([type="file"]),select,textarea,button',
-	_FILE_INPUT_SELECTOR = 'input[type="file"]',
+	_EXCLUDE_FILE_CHECKBOX_INPUT_SELECTOR = 'button,input:not([type="checkbox"]):not([type="file"]),select,textarea',
+	_FILE_CHECKBOX_SELECTOR = 'input[type="checkbox"],input[type="file"]',
 	_FORM_ELEMENTS_SELECTOR = 'input,select,textarea,button',
 	_INVALID_DATE = 'Invalid Date',
 	_PIPE = '|',
@@ -829,11 +829,11 @@ var FormValidator = A.Component.create({
 
 			if (val) {
 				if (!instance._inputHandlers) {
-					instance._inputHandlers = boundingBox.delegate(EV_INPUT, instance._onFieldInput, _EXCLUDE_FILE_INPUT_SELECTOR, instance);
+					instance._inputHandlers = boundingBox.delegate(EV_INPUT, instance._onFieldInput, _EXCLUDE_FILE_CHECKBOX_INPUT_SELECTOR, instance);
 				}
 
 				if (!instance._fileInputHandlers) {
-					instance._fileInputHandlers = boundingBox.delegate(EV_CHANGE, instance._onFieldInput, _FILE_INPUT_SELECTOR, instance);
+					instance._fileInputHandlers = boundingBox.delegate(EV_CHANGE, instance._onFieldInput, _FILE_CHECKBOX_SELECTOR, instance);
 				}
 			}
 			else {
@@ -853,11 +853,11 @@ var FormValidator = A.Component.create({
 
 			if (val) {
 				if (!instance._blurHandlers) {
-					instance._blurHandlers = boundingBox.delegate(EV_BLUR, instance._onFieldInput, _EXCLUDE_FILE_INPUT_SELECTOR, instance);
+					instance._blurHandlers = boundingBox.delegate(EV_BLUR, instance._onFieldInput, _EXCLUDE_FILE_CHECKBOX_INPUT_SELECTOR, instance);
 				}
 
 				if (!instance._fileBlurHandlers) {
-					instance._fileBlurHandlers = boundingBox.delegate(EV_CHANGE, instance._onFieldInput, _FILE_INPUT_SELECTOR, instance);
+					instance._fileBlurHandlers = boundingBox.delegate(EV_CHANGE, instance._onFieldInput, _FILE_CHECKBOX_SELECTOR, instance);
 				}
 			}
 			else {
