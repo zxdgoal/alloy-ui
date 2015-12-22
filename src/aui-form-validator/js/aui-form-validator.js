@@ -551,6 +551,7 @@ var FormValidator = A.Component.create({
             instance.bindUI();
             instance._uiSetValidateOnBlur(instance.get('validateOnBlur'));
             instance._uiSetValidateOnInput(instance.get('validateOnInput'));
+            instance._uiSetValidateOnChange(instance.get('validateOnBlur') || instance.get('validateOnInput'));
         },
 
         /**
@@ -1358,21 +1359,12 @@ var FormValidator = A.Component.create({
             if (val) {
                 if (!instance._inputHandlers) {
                     instance._inputHandlers = boundingBox.delegate('input', instance._onFieldInput,
-                        'input:not([type="file"]),select,textarea,button', instance);
-                }
-
-                if (!instance._fileInputHandlers) {
-                    instance._fileInputHandlers = boundingBox.delegate('change', instance._onFieldInput,
-                        'input[type="file"]', instance);
+                        'input:not([type="file"]):not([type="checkbox"]),select,textarea,button', instance);
                 }
             }
             else {
                 if (instance._inputHandlers) {
                     instance._inputHandlers.detach();
-                }
-
-                if (instance._fileInputHandlers) {
-                    instance._fileInputHandlers.detach();
                 }
             }
         },
@@ -1391,21 +1383,36 @@ var FormValidator = A.Component.create({
             if (val) {
                 if (!instance._blurHandlers) {
                     instance._blurHandlers = boundingBox.delegate('blur', instance._onFieldInput,
-                        'input:not([type="file"]),select,textarea,button', instance);
-                }
-
-                if (!instance._fileBlurHandlers) {
-                    instance._fileBlurHandlers = boundingBox.delegate('change', instance._onFieldInput,
-                        'input[type="file"]', instance);
+                        'input:not([type="file"]):not([type="checkbox"]),select,textarea,button', instance);
                 }
             }
             else {
                 if (instance._blurHandlers) {
                     instance._blurHandlers.detach();
                 }
+            }
+        }
 
-                if (instance._fileBlurHandlers) {
-                    instance._fileBlurHandlers.detach();
+        /**
+         * Sets the `validateOnChange` attribute on the UI.
+         *
+         * @method _uiSetValidateOnChange
+         * @param val
+         * @protected
+         */
+        _uiSetValidateOnChange: function(val) {
+            var instance = this,
+                boundingBox = instance.get('boundingBox');
+
+            if (val) {
+                if (!instance._changeHandlers) {
+                    instance._changeHandlers = boundingBox.delegate('change', instance._onFieldInput,
+                        'input[type="file"],input[type="checkbox"]', instance);
+                }
+            }
+            else {
+                if (instance._changeHandlers) {
+                    instance._changeHandlers.detach();
                 }
             }
         }
