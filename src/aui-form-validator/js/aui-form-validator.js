@@ -1359,7 +1359,7 @@ var FormValidator = A.Component.create({
             if (val) {
                 if (!instance._inputHandlers) {
                     instance._inputHandlers = boundingBox.delegate('input', instance._onFieldInput,
-                        'input:not([type="file"]):not([type="checkbox"]),select,textarea,button', instance);
+                        'button,input:not([type="checkbox"]):not([type="file"]),select,textarea', instance);
                 }
             }
             else {
@@ -1383,7 +1383,7 @@ var FormValidator = A.Component.create({
             if (val) {
                 if (!instance._blurHandlers) {
                     instance._blurHandlers = boundingBox.delegate('blur', instance._onFieldInput,
-                        'input:not([type="file"]):not([type="checkbox"]),select,textarea,button', instance);
+                        'button,input:not([type="checkbox"]):not([type="file"]),select,textarea', instance);
                 }
             }
             else {
@@ -1391,7 +1391,7 @@ var FormValidator = A.Component.create({
                     instance._blurHandlers.detach();
                 }
             }
-        }
+        },
 
         /**
          * Sets the `validateOnChange` attribute on the UI.
@@ -1407,7 +1407,7 @@ var FormValidator = A.Component.create({
             if (val) {
                 if (!instance._changeHandlers) {
                     instance._changeHandlers = boundingBox.delegate('change', instance._onFieldInput,
-                        'input[type="file"],input[type="checkbox"]', instance);
+                        'input[type="checkbox"],input[type="file"]', instance);
                 }
             }
             else {
