@@ -427,6 +427,37 @@ YUI.add('aui-form-validator-tests', function(Y) {
             Y.Assert.isFalse(validator.hasErrors(), 'Validator should have no errors');
         },
 
+        /*
+         * Check if validator works for checkbox when it is changed
+         * @tests AUI-2060
+         */
+        'test reqired error message is gone when checkbox is checked': function () {
+            var form = Y.Node.create(
+                '<form><div class="form-group"><div class="checkbox"><input name="roleCheckbox" id="roleCheckbox" type="checkbox" /></div></div></form>'),
+                input = form.one('input'),
+                validator;
+
+            validator = new Y.FormValidator({
+                boundingBox: form,
+                rules: {
+                    roleCheckbox: {
+                        required: true
+                    }
+                }
+            });
+
+            form.simulate('submit');
+
+            Y.Assert.isTrue(validator.hasErrors(), 'Validator should have errors');
+
+            input.attr('checked', true);
+
+            input.simulate('change');
+
+            Y.Assert.isFalse(validator.hasErrors(), 'Validator should have no errors');
+
+        },
+
         _assertValidatorNextLabel: function(input) {
             var inputNode,
                 textNode;
