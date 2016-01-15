@@ -22,7 +22,7 @@ YUI.add('aui-toggler-base-tests', function(Y) {
 
         setUp: function() {
             this.createToggler({
-            animated: true,
+            animated: false,
             content: '.content',
             header: '.accordion-heading',
             expanded: false,
