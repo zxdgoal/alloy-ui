@@ -55,7 +55,11 @@ YUI.add('aui-toggler-base-tests', function(Y) {
             var toggler = this._toggler;
 
             toggler.expand();
-            toggler.collapse();
+
+            this.wait(function() {
+                toggler.collapse();
+            }, 1);
+
             Y.Assert.isTrue(this.togglerHasClass('toggler-content-collapsed'));
         },
 
@@ -65,11 +69,17 @@ YUI.add('aui-toggler-base-tests', function(Y) {
             toggler.toggle();
             Y.Assert.isTrue(this.togglerHasClass('toggler-content-expanded'));
 
-            toggler.toggle(false);
+            this.wait(function() {
+                toggler.collapse(false);
+            }, 1);
+
             Y.Assert.isTrue(this.togglerHasClass('toggler-content-collapsed'));
 
-            toggler.toggle(true);
-            Y.Assert.isTrue(this.togglerHasClass('toggler-content-collapsed'));
+            this.wait(function() {
+                toggler.collapse(true);
+            }, 1);
+
+            Y.Assert.isTrue(this.togglerHasClass('toggler-content-expanded'));
         },
 
         'should return the right content height': function() {
