@@ -19,6 +19,7 @@ var L = A.Lang,
 	FILE = 'file',
 	HITAREA = 'hitarea',
 	ICON = 'icon',
+	INVALID = 'invalid',
 	LABEL = 'label',
 	LAST_SELECTED = 'lastSelected',
 	LEAF = 'leaf',
@@ -46,6 +47,7 @@ var L = A.Lang,
 	CSS_TREE_ICON = getCN(TREE, ICON),
 	CSS_TREE_LABEL = getCN(TREE, LABEL),
 	CSS_TREE_NODE_CONTENT = getCN(TREE, NODE, CONTENT),
+	CSS_TREE_NODE_CONTENT_INVALID = getCN(TREE, NODE, CONTENT, INVALID),
 	CSS_TREE_ROOT_CONTAINER = getCN(TREE, ROOT, CONTAINER),
 	CSS_TREE_VIEW_CONTENT = getCN(TREE, VIEW, CONTENT);
 
@@ -585,6 +587,7 @@ var TreeViewDD = A.Component.create(
 						{
 							bubbleTargets: instance,
 							container: boundingBox,
+							invalid: DOT+CSS_TREE_NODE_CONTENT_INVALID,
 							nodes: DOT+CSS_TREE_NODE_CONTENT,
 							target: true
 						}
@@ -908,4 +911,4 @@ var TreeViewDD = A.Component.create(
 
 A.TreeViewDD = TreeViewDD;
 
-}, '@VERSION@' ,{skinnable:true, requires:['aui-tree-node','dd-delegate','dd-proxy']});
+}, '@VERSION@' ,{requires:['aui-tree-node','dd-delegate','dd-proxy'], skinnable:true});
